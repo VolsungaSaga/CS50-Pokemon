@@ -61,6 +61,7 @@ function Selection:update(dt)
         --Because the default selection is 1, a plain list Selection can just use a callback assigned to 
         -- the first item to do a 'confirmation' procedure.
         if love.keyboard.wasPressed('return') or love.keyboard.wasPressed('enter') then
+            --print("Pressed Enter!")
             self.items[self.currentSelection].onSelect()
 
             gSounds['blip']:stop()
@@ -75,7 +76,7 @@ function Selection:render()
     for i = 1, #self.items do
         local paddedY = currentY + (self.gapHeight / 2) - self.font:getHeight() / 2
 
-        -- draw selection marker if we're at the right index AND this selection is 
+        -- draw selection marker if we're at the right index AND this selection isn't a plain list.
         if i == self.currentSelection and not self.isPlainList then
             love.graphics.draw(gTextures['cursor'], self.x - 8, paddedY)
         end

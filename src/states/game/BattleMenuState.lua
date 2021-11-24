@@ -24,6 +24,22 @@ function BattleMenuState:init(battleState)
                     gStateStack:push(TakeTurnState(self.battleState))
                 end
             },
+            -- {
+            --     text = "LevelUp",
+            --     onSelect = function ()
+            --         local HPInc, AttackInc, DefenseInc, SpeedInc = self.battleState.playerPokemon:levelUp()
+            --         gStateStack:pop()
+
+            --         gStateStack:push(LevelUpMenuState({pokemon = self.battleState.playerPokemon, 
+            --         HPInc = HPInc, 
+            --         AttackInc = AttackInc, 
+            --         DefenseInc = DefenseInc, 
+            --         SpeedInc = SpeedInc},
+            --         function()
+            --             gStateStack:push(BattleMenuState(self.battleState))
+            --         end))                
+            --     end
+            -- },
             {
                 text = 'Run',
                 onSelect = function()

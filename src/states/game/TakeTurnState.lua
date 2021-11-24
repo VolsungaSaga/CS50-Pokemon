@@ -116,6 +116,7 @@ function TakeTurnState:attack(attacker, defender, attackerSprite, defenderSprite
     end)
 end
 
+
 function TakeTurnState:checkDeaths()
     if self.playerPokemon.currentHP <= 0 then
         self:faint()
