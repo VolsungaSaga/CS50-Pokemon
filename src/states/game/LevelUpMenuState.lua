@@ -16,18 +16,22 @@ function LevelUpMenuState:init(def, onClose)
     -- project backwards into the past in order to provide an accurate chronicle.
     self.levelupMenu = Menu{
         x = 0,
-        y = VIRTUAL_HEIGHT - 96,
+        y = VIRTUAL_HEIGHT - 128,
         width = VIRTUAL_WIDTH,
-        height = 96,
+        height = 128,
         items = {
             {
-                --Only define onSelect for the first item, because our plain list flag ensures that this is the one called.
-                text = "HP: "..tostring(self.pokemon.HP - self.HPInc).." + "..tostring(self.HPInc).." = "..tostring(self.pokemon.HP),
+                text = "---Level Up!---",
                 onSelect = function ()
                     --print("HP selected!")
                     gStateStack:pop()
                     self.onClose()
                 end
+            },
+            {
+                --Only define onSelect for the first item, because our plain list flag ensures that this is the one called.
+                text = "HP: "..tostring(self.pokemon.HP - self.HPInc).." + "..tostring(self.HPInc).." = "..tostring(self.pokemon.HP)
+                
             },
             {
                 text = "Attack: "..tostring(self.pokemon.attack - self.AttackInc).." + "..tostring(self.AttackInc).." = "..tostring(self.pokemon.attack)
